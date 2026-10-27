@@ -2,20 +2,20 @@
 
 ## 이 스킬이란?
 
-[eformsign](https://www.eformsign.com) 전자문서 서비스 연동 개발을 도와주는 **Agent Skill**입니다. REST API, iframe 임베딩, Webhook, MCP 툴에 대한 정확한 레퍼런스를 제공하며, 공식 문서에 없는 실제 서버 동작 차이와 미기재 필수 필드 정보를 포함합니다.
+[eformsign](https://www.eformsign.com) 전자문서 서비스 연동 개발을 도와주는 **Agent Skill**입니다. REST API, iframe 임베딩, Webhook, MCP 연결에 대한 정확한 레퍼런스를 제공하며, 공식 문서에 없는 실제 서버 동작 차이와 미기재 필수 필드 정보를 포함합니다.
 
 Agent Skills는 오픈 표준으로, Claude Code와 Cursor 등 여러 AI 코딩 클라이언트에서 사용할 수 있습니다.
 
 ---
 
-## 어떤 스킬을 설치할까요?
+## 무엇이 포함되어 있나요?
 
-| 스킬 파일 | 대상 | 포함 기능 |
-|-----------|------|-----------|
-| `eformsign.skill` | 관리자 / 풀스택 개발자 | 문서 API 전체 + 조직 관리(템플릿·멤버·그룹·도장) + 임베딩 + Webhook + MCP(관리자) |
-| `eformsign-user.skill` | 일반 앱 개발자 | 문서 API + 임베딩 + Webhook + MCP(멤버) — 조직 관리 제외 |
+`eformsign.skill` 파일 하나로 모두 사용할 수 있습니다.
 
-**잘 모르겠다면** `eformsign-user.skill`을 먼저 설치하세요. 템플릿·멤버 관리가 필요하면 나중에 `eformsign.skill`을 추가하면 됩니다.
+- 문서 API, 임베딩, Webhook, MCP 연결 안내
+- 조직 관리 API(템플릿·멤버·그룹·도장) — **관리자 권한**이 필요합니다
+
+> **`eformsign-user.skill`을 사용 중이신가요?** `eformsign.skill`로 통합되었습니다. 스킬 디렉토리의 `eformsign-user` 폴더를 삭제한 뒤 `eformsign.skill`을 설치하세요.
 
 ---
 
@@ -197,7 +197,7 @@ Expand-Archive -Force "C:\경로\eformsign.skill" .
 ```python
 import zipfile, os
 
-skill_file = "eformsign.skill"   # 또는 eformsign-user.skill
+skill_file = "eformsign.skill"
 
 # 클라이언트에 맞게 경로 변경:
 #   Claude Code        → os.path.join(os.path.expanduser("~"), ".claude", "skills")
@@ -351,10 +351,10 @@ Cursor는 스킬이 많을 때 불필요한 로딩을 막기 위해 기본적으
 |------|------|
 | **인증** | Access Token 발급 (Bearer / Basic / eformsign Signature), Refresh Token 갱신 |
 | **문서 API** | 생성, 목록 조회, 상세 조회, PDF 다운로드, 삭제, 취소, 반려, 대량 발송, 재전송 |
-| **조직 관리** | 템플릿, 멤버, 그룹, 회사 도장 (`eformsign.skill` 전용) |
+| **조직 관리** | 템플릿, 멤버, 그룹, 회사 도장 (관리자 권한 필요) |
 | **임베딩** | 스크립트 로딩, `EformSignDocument`/`EformSignTemplate` SDK, `document_option` 전체 구조, 콜백 |
 | **Webhook** | 이벤트 구조, 서명 검증, 서버 예제 (Python/Node.js) |
-| **MCP** | 툴 목록, 파라미터, REST API 대비 동작 차이 |
+| **MCP** | eformsign 호스팅 MCP 서버 연결 방법(OAuth). 클라이언트 ID/시크릿은 회사 관리자에게 문의 |
 | **코드 예제** | Python, JavaScript/Node.js, Java, PHP, C# 언어별 예제 |
 
 ### 문서화된 알려진 이슈

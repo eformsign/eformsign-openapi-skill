@@ -210,7 +210,7 @@ user: {
 }
 ```
 
-Send an empty string `""` when no deletion reason is needed. The MCP server automatically includes `comment` (defaulting to `""`) to handle this.
+Send an empty string `""` when no deletion reason is needed.
 
 ---
 

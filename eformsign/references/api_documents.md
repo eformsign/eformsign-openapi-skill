@@ -208,8 +208,6 @@ POST {api_url}/v2.0/api/list_document      # body filter method (⚠️ singular
 | Returns **empty list `[]`** even though documents exist | `limit` field missing from body | Add `"limit": "20"` to request body |
 | Returns **400** | Body is missing entirely | Always include a body |
 
-> **list vs query**: The two endpoints above use a **body filter** approach. Some integrations (e.g., MCP server) expose a separate `query` action that uses **query parameters** instead of a request body. Both retrieve the same document data — the difference is only in how filters are passed.
-
 > **type `04` (manage) is admin-only**: Regular members can only use types `01`/`02`/`03`. Using type `04` without admin privileges returns an error.
 
 **Query Parameters (all optional):**

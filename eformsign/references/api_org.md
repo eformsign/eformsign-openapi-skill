@@ -1,5 +1,7 @@
 # eformsign API — Templates, Members, Groups & Stamps
 
+> ⚠️ **Administrator permission required.** The organization management APIs in this file (templates, members, groups, stamps) must be called with administrator permission. If a call is rejected, check the account / API key permission first.
+
 ## Known Server Behavior (Org APIs)
 
 > Confirmed discrepancies between the API spec and actual server behavior:

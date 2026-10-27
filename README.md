@@ -7,12 +7,19 @@ eformsign 전자문서 서비스 연동 앱 개발을 돕는 **Agent Skill**입�
 
 ---
 
-## 스킬 종류
+## 포함 범위
 
-| 스킬 | 대상 | 포함 기능 |
-|------|------|-----------|
-| `eformsign` | 관리자 / 풀스택 개발자 | API(문서+조직관리)+임베딩+Webhook+MCP |
-| `eformsign-user` | 일반 앱 개발자 | API(문서)+임베딩+Webhook (조직관리 제외) |
+`eformsign` 스킬 하나로 아래 기능을 모두 사용할 수 있습니다.
+
+| 영역 | 내용 |
+|------|------|
+| 문서 API | 인증, 문서 생성·조회·다운로드·삭제 등 |
+| 조직 관리 API | 템플릿·멤버·그룹·도장 관리 (**관리자 권한 필요**) |
+| 임베딩 | iframe 임베딩 |
+| Webhook | 이벤트 수신, 서명 검증 |
+| MCP | eformsign이 제공하는 MCP 서버 연결 안내 (OAuth) |
+
+> **`eformsign-user`를 사용 중이신가요?** `eformsign`으로 통합되었습니다. 스킬 디렉토리의 `eformsign-user` 폴더를 삭제하고 `eformsign.skill`을 설치하세요.
 
 ---
 
@@ -83,23 +90,7 @@ eformsign/
     ├── embedding_advanced.md    # 콜백, 고급 옵션, 전체 예제
     ├── webhook.md               # Webhook 이벤트, 검증, 서버 예제
     ├── code_examples.md         # 언어별 코드 예제
-    ├── sdk_findings.md          # 공식 문서 오류·SDK 버그·서버 동작 차이
-    └── mcp_findings.md          # MCP 툴 목록, 파라미터, REST API 대비 동작 차이
-```
-
-```
-eformsign-user/
-├── SKILL.md                     # 일반 사용자용 스킬 진입점
-└── references/
-    ├── api_auth.md
-    ├── api_documents.md         # api_org.md 제외 (조직 관리 불필요)
-    ├── embedding_setup.md
-    ├── embedding_config.md
-    ├── embedding_advanced.md
-    ├── webhook.md
-    ├── code_examples.md
-    ├── sdk_findings.md
-    └── mcp_findings.md          # MCP member 툴 동작 참조
+    └── sdk_findings.md          # 공식 문서 오류·SDK 버그·서버 동작 차이
 ```
 
 ---
@@ -110,13 +101,9 @@ eformsign-user/
 # skill-creator 디렉토리에서 실행 (위치: ~/.claude/skills/skill-creator/)
 cd "C:\Users\{username}\.claude\skills\skill-creator"
 
-# eformsign (전체 기능)
 PYTHONUTF8=1 PYTHONIOENCODING=utf-8 python -m scripts.package_skill "path/to/eformsign" "output/dir"
-
-# eformsign-user (일반 사용자 기능)
-PYTHONUTF8=1 PYTHONIOENCODING=utf-8 python -m scripts.package_skill "path/to/eformsign-user" "output/dir"
 ```
 
-성공 시 출력 디렉토리에 `eformsign.skill`, `eformsign-user.skill` 파일이 생성됩니다.
+성공 시 출력 디렉토리에 `eformsign.skill` 파일이 생성됩니다. (저장소에서는 `build.ps1`이 `dist/`에 생성합니다.)
 
 > **Windows 인코딩 주의**: `PYTHONUTF8=1 PYTHONIOENCODING=utf-8` 없이 실행하면 한글 처리 오류가 발생합니다.

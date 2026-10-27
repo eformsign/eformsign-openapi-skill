@@ -2,20 +2,20 @@
 
 ## What Is This?
 
-Two **Agent Skills** that make AI coding assistants expert helpers for integrating the [eformsign](https://www.eformsign.com) electronic document service. The skills provide accurate reference material for the REST API, iframe embedding, webhook handling, and MCP tools — including known server quirks and undocumented fields not in the official docs.
+An **Agent Skill** that makes AI coding assistants expert helpers for integrating the [eformsign](https://www.eformsign.com) electronic document service. The skill provides accurate reference material for the REST API, iframe embedding, webhook handling, and MCP connection — including known server quirks and undocumented fields not in the official docs.
 
 Agent Skills is an open standard supported by multiple AI clients (Claude Code, Cursor, and others).
 
 ---
 
-## Which Skill Should I Install?
+## What Is Included?
 
-| Skill file | Who it's for | What it covers |
-|------------|--------------|----------------|
-| `eformsign.skill` | Admin-level / full-stack developers | All document APIs + org management (templates, members, groups, seals) + embedding + webhook + MCP (admin) |
-| `eformsign-user.skill` | App developers without admin access | Document APIs + embedding + webhook + MCP (member) — no org management |
+A single skill file, `eformsign.skill`, covers everything:
 
-**Not sure?** Install `eformsign-user.skill` to start. You can add `eformsign.skill` later if you need template or member management.
+- Document APIs, embedding, webhook, and an MCP connection guide
+- Organization management APIs (templates, members, groups, seals) — these require **administrator permission**
+
+> **Upgrading from `eformsign-user.skill`?** It has been merged into `eformsign.skill`. Delete the `eformsign-user` folder from your skills directory, then install `eformsign.skill`.
 
 ---
 
@@ -197,7 +197,7 @@ After installation, open the Cline panel in VS Code, click the **⚖️ icon** (
 ```python
 import zipfile, os
 
-skill_file = "eformsign.skill"   # or eformsign-user.skill
+skill_file = "eformsign.skill"
 
 # Change the path below to match your client:
 #   Claude Code        → os.path.join(os.path.expanduser("~"), ".claude", "skills")
@@ -351,10 +351,10 @@ Cursor recommends `true` as the default to prevent unnecessary skill loading whe
 |------|---------|
 | **Authentication** | Access Token issuance (Bearer / Basic / eformsign Signature), Refresh Token renewal |
 | **Document API** | Create, list, get, download PDF, delete, cancel, decline, bulk send, re-request |
-| **Org Management** | Templates, members, groups, company seals (`eformsign.skill` only) |
+| **Org Management** | Templates, members, groups, company seals (administrator permission required) |
 | **Embedding** | Script loading, `EformSignDocument` / `EformSignTemplate` SDK, `document_option` config, callbacks |
 | **Webhook** | Event structure, signature verification, server examples (Python/Node.js) |
-| **MCP** | Tool list, parameters, behavioral differences from REST API |
+| **MCP** | How to connect to the eformsign-hosted MCP server (OAuth). Ask your company administrator for the client ID/secret |
 | **Code Examples** | Language-specific examples in Python, JavaScript/Node.js, Java, PHP, C# |
 
 ### Known issues documented

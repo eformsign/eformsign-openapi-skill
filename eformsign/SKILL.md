@@ -16,7 +16,7 @@ eformsign is an electronic document SaaS platform. There are **4 integration met
 - **Embedding**: Embed eformsign features directly into your web service via iframe
 - **Open API**: Programmatically control documents, templates, and organizations via REST API
 - **Webhook**: Receive real-time document state change events to your system via HTTP POST
-- **MCP**: Use eformsign via MCP tools (eformsign-admin / eformsign-member server) in AI agent workflows
+- **MCP**: Use eformsign from an AI client through the MCP server hosted by eformsign (OAuth login, no self-hosting)
 
 ## Reference Files
 
@@ -26,14 +26,13 @@ Read the appropriate reference file based on your task:
 |------|------|
 | API authentication, signature generation, token issuance/refresh | `references/api_auth.md` |
 | Document create/query/download/delete/bulk API | `references/api_documents.md` |
-| Template, member, group, seal management API | `references/api_org.md` |
+| Template, member, group, seal management API (**requires administrator permission**) | `references/api_org.md` |
 | Embedding: script loading, SDK objects (EformSignDocument/Template) | `references/embedding_setup.md` |
 | Embedding: document_option, user/mode/layout/prefill configuration | `references/embedding_config.md` |
 | Embedding: advanced options, callbacks, full examples | `references/embedding_advanced.md` |
 | Webhook setup, verification, and event handling | `references/webhook.md` |
 | Language-specific code examples (Python/JS/Java/PHP/C#) | `references/code_examples.md` |
 | Known SDK bugs, undocumented fields, and official doc discrepancies | `references/sdk_findings.md` |
-| MCP tool list, parameters, behaviors, and differences from REST API | `references/mcp_findings.md` |
 
 ## Multi-File Scenarios
 
@@ -59,10 +58,6 @@ Some tasks require reading multiple reference files. Read all listed files befor
 
 - **Advanced prefill (batch preview or dataset binding)**: Read `references/embedding_config.md` for basic `prefill` configuration, then `references/embedding_advanced.md` for the `prefills` array (sequential batch preview) and `form_parameters` (external dataset binding).
 
-- **MCP tool usage (admin)**: Read `references/mcp_findings.md` for the full tool list, parameter schemas, and known behavioral differences from the REST API (e.g. `use_mail` as string, `auth_details` field, file download to local path).
-
-- **MCP tool usage (member)**: Read `references/mcp_findings.md` — focus on the member tool table (Section 1) and the admin vs member permission comparison (Section 5-14). Member tools exclude `delete`, type `04` queries, and all org write operations.
-
 ## Key Concepts
 
 ### API Basics
@@ -70,6 +65,7 @@ Some tasks require reading multiple reference files. Read all listed files befor
 - **Auth header**: `Authorization: Bearer {access_token}` required on every API call
 - **Access Token TTL**: 3600 seconds (1 hour); renew with `refresh_token`
 - **API version**: v2.0 (contact support for v1.0)
+- **Permissions**: Organization management APIs (templates, members, groups, seals — `references/api_org.md`) require administrator permission. If such a call is rejected, check whether the API key / account has admin rights before debugging the request
 
 ### eformsign Signature
 - Algorithm: SHA256withECDSA (elliptic curve asymmetric encryption)
@@ -130,10 +126,13 @@ Some tasks require reading multiple reference files. Read all listed files befor
 > See `references/webhook.md` for event structure, verification code, and server examples
 
 ### MCP Integration
-1. Run the eformsign MCP server (`eformsign-admin` or `eformsign-member`)
-2. Connect an AI agent (Claude, etc.) via SSE or stdio transport
-3. Use MCP tools — authentication is handled internally by the server
-4. Admin server: full CRUD on documents, templates, members, groups, seals + API key management
-5. Member server: document create/query/download + read-only access to org resources
+eformsign provides a hosted MCP server, so there is nothing to install or run yourself.
 
-> See `references/mcp_findings.md` for tool list, parameter schemas, and behavioral notes
+1. In your MCP client, set the server address (e.g. `https://mcp.eformsign.com` — placeholder, confirm the actual address), the OAuth client ID, and the client secret
+2. On connection, the eformsign login page opens — sign in with your eformsign account
+3. OAuth issues a token; the MCP server exchanges it with eformsign for an API token
+4. Available tools and their permissions depend on the issued token — read the tool schemas the server returns instead of relying on this skill
+
+The client ID and secret are not public. Ask your company administrator for them; do not guess or invent values.
+
+There are no MCP tools for Embedding or Webhook — those still require code (see the sections above).

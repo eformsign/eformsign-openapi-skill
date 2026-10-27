@@ -253,25 +253,6 @@ def refresh_access_token(api_url: str, access_token: str, refresh_token: str) ->
 
 ---
 
-## Member API Key Management (MCP Server Only)
-
-> ⚠️ **These operations are available only through the eformsign MCP server** (`eformsign_auth` tool).
-> There are no corresponding REST API endpoints — they cannot be called directly via HTTP.
-
-The MCP server's `eformsign_auth` tool provides the following additional actions for managing
-API keys on behalf of individual company members:
-
-| Action | Description | Required Parameters |
-|--------|-------------|---------------------|
-| `issue_member_key` | Issue an API key for a specific member | `company_id`, `member_id` |
-| `list_member_keys` | List issued API keys | `company_id` (optional filter) |
-| `revoke_member_key` | Deactivate an API key | `key` (the API key value) |
-
-These are used in operational scenarios where the eformsign-member MCP server needs a separate
-API key issued per end-user.
-
----
-
 ## Generating a Signature
 
 Required for eformsign Signature authentication (Access Token issuance) and Webhook verification.
