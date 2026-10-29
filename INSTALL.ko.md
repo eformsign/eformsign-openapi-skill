@@ -1,8 +1,8 @@
-# eformsign Skill — 설치 가이드
+# eformsign Open API Skill — 설치 가이드
 
 ## 이 스킬이란?
 
-[eformsign](https://www.eformsign.com) 전자문서 서비스 연동 개발을 도와주는 **Agent Skill**입니다. REST API, iframe 임베딩, Webhook, MCP 연결에 대한 정확한 레퍼런스를 제공하며, 공식 문서에 없는 실제 서버 동작 차이와 미기재 필수 필드 정보를 포함합니다.
+[eformsign](https://www.eformsign.com) 전자문서 서비스 연동 개발을 도와주는 **eformsign Open API Skill**(Agent Skill)입니다. REST API, iframe 임베딩, Webhook, MCP 연결에 대한 정확한 레퍼런스를 제공하며, 공식 문서에 없는 실제 서버 동작 차이와 미기재 필수 필드 정보를 포함합니다.
 
 Agent Skills는 오픈 표준으로, Claude Code와 Cursor 등 여러 AI 코딩 클라이언트에서 사용할 수 있습니다.
 
@@ -10,7 +10,7 @@ Agent Skills는 오픈 표준으로, Claude Code와 Cursor 등 여러 AI 코딩 
 
 ## 무엇이 포함되어 있나요?
 
-`eformsign.skill` 파일 하나로 모두 사용할 수 있습니다.
+**eformsign Open API Skill**은 `eformsign.skill` 파일 하나로 모두 사용할 수 있습니다.
 
 - 문서 API, 임베딩, Webhook, MCP 연결 안내
 - 조직 관리 API(템플릿·멤버·그룹·도장) — **관리자 권한**이 필요합니다

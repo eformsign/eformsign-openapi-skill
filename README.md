@@ -1,6 +1,6 @@
-# eformsign Skill
+# eformsign Open API Skill
 
-eformsign 전자문서 서비스 연동 앱 개발을 돕는 **Agent Skill**입니다.  
+**eformsign Open API Skill**은 eformsign 전자문서 서비스 연동 앱 개발을 돕는 **Agent Skill**입니다.  
 공식 문서의 오류·누락·실제 서버 동작 차이를 보완하는 레퍼런스를 담고 있습니다.
 
 [Agent Skills](https://agentskills.io) 오픈 표준을 따르며, Claude Code·Cursor·GitHub Copilot·Cline 등 다양한 AI 코딩 클라이언트에서 사용할 수 있습니다.
@@ -9,7 +9,7 @@ eformsign 전자문서 서비스 연동 앱 개발을 돕는 **Agent Skill**입�
 
 ## 포함 범위
 
-`eformsign` 스킬 하나로 아래 기능을 모두 사용할 수 있습니다.
+**eformsign Open API Skill**(`eformsign`) 하나로 아래 기능을 모두 사용할 수 있습니다.
 
 | 영역 | 내용 |
 |------|------|

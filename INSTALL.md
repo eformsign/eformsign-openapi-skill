@@ -1,8 +1,8 @@
-# eformsign Skill — Installation Guide
+# eformsign Open API Skill — Installation Guide
 
 ## What Is This?
 
-An **Agent Skill** that makes AI coding assistants expert helpers for integrating the [eformsign](https://www.eformsign.com) electronic document service. The skill provides accurate reference material for the REST API, iframe embedding, webhook handling, and MCP connection — including known server quirks and undocumented fields not in the official docs.
+The **eformsign Open API Skill** is an **Agent Skill** that makes AI coding assistants expert helpers for integrating the [eformsign](https://www.eformsign.com) electronic document service. The skill provides accurate reference material for the REST API, iframe embedding, webhook handling, and MCP connection — including known server quirks and undocumented fields not in the official docs.
 
 Agent Skills is an open standard supported by multiple AI clients (Claude Code, Cursor, and others).
 
@@ -10,7 +10,7 @@ Agent Skills is an open standard supported by multiple AI clients (Claude Code, 
 
 ## What Is Included?
 
-A single skill file, `eformsign.skill`, covers everything:
+The **eformsign Open API Skill** is a single skill file, `eformsign.skill`, and covers everything:
 
 - Document APIs, embedding, webhook, and an MCP connection guide
 - Organization management APIs (templates, members, groups, seals) — these require **administrator permission**
