@@ -10,12 +10,12 @@ Agent Skills is an open standard supported by multiple AI clients (Claude Code, 
 
 ## What Is Included?
 
-The **eformsign Open API Skill** is a single skill file, `eformsign.skill`, and covers everything:
+The **eformsign Open API Skill** is a single skill file, `eformsign-openapi.skill`, and covers everything:
 
 - Document APIs, embedding, webhook, and an MCP connection guide
 - Organization management APIs (templates, members, groups, seals) — these require **administrator permission**
 
-> **Upgrading from `eformsign-user.skill`?** It has been merged into `eformsign.skill`. Delete the `eformsign-user` folder from your skills directory, then install `eformsign.skill`.
+> **Already have `eformsign` or `eformsign-user` installed?** Both have been replaced by `eformsign-openapi`. Delete the `eformsign` / `eformsign-user` folders from your skills directory, then install `eformsign-openapi.skill`.
 
 ---
 
@@ -47,7 +47,7 @@ Download the `.skill` file(s) from the [`dist/`](dist/) folder in this repositor
 ```bash
 mkdir -p ~/.claude/skills
 cd ~/.claude/skills
-unzip /path/to/eformsign.skill
+unzip /path/to/eformsign-openapi.skill
 ```
 
 #### Windows (PowerShell)
@@ -55,7 +55,7 @@ unzip /path/to/eformsign.skill
 ```powershell
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills"
 cd "$env:USERPROFILE\.claude\skills"
-Expand-Archive -Force "C:\path\to\eformsign.skill" .
+Expand-Archive -Force "C:\path\to\eformsign-openapi.skill" .
 ```
 
 After installation, **start a new Claude Code session** — skills are loaded at session startup.
@@ -81,7 +81,7 @@ No file path setup needed. The skill is auto-invoked based on conversation conte
 ```bash
 mkdir -p ~/.copilot/skills
 cd ~/.copilot/skills
-unzip /path/to/eformsign.skill
+unzip /path/to/eformsign-openapi.skill
 ```
 
 #### Windows (PowerShell)
@@ -89,7 +89,7 @@ unzip /path/to/eformsign.skill
 ```powershell
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.copilot\skills"
 cd "$env:USERPROFILE\.copilot\skills"
-Expand-Archive -Force "C:\path\to\eformsign.skill" .
+Expand-Archive -Force "C:\path\to\eformsign-openapi.skill" .
 ```
 
 > **Already have Claude Code?** Skip this step — GitHub Copilot also scans `~/.claude/skills/`, so the skill installed there works for both clients.
@@ -107,7 +107,7 @@ After installation, **reload VS Code** (or open a new Copilot Chat session).
 ```bash
 mkdir -p ~/.cursor/skills
 cd ~/.cursor/skills
-unzip /path/to/eformsign.skill
+unzip /path/to/eformsign-openapi.skill
 ```
 
 #### Windows (PowerShell)
@@ -115,7 +115,7 @@ unzip /path/to/eformsign.skill
 ```powershell
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.cursor\skills"
 cd "$env:USERPROFILE\.cursor\skills"
-Expand-Archive -Force "C:\path\to\eformsign.skill" .
+Expand-Archive -Force "C:\path\to\eformsign-openapi.skill" .
 ```
 
 > **⚠️ Important:** Do **not** place files under `~/.cursor/skills-cursor/`. That directory is reserved for Cursor's internal built-in skills and is managed automatically — user skills placed there will be ignored or overwritten.
@@ -131,7 +131,7 @@ After installation, **restart Cursor** — skills are loaded at startup.
 ```bash
 mkdir -p ~/.gemini/config/skills
 cd ~/.gemini/config/skills
-unzip /path/to/eformsign.skill
+unzip /path/to/eformsign-openapi.skill
 ```
 
 #### Windows (PowerShell)
@@ -139,7 +139,7 @@ unzip /path/to/eformsign.skill
 ```powershell
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.gemini\config\skills"
 cd "$env:USERPROFILE\.gemini\config\skills"
-Expand-Archive -Force "C:\path\to\eformsign.skill" .
+Expand-Archive -Force "C:\path\to\eformsign-openapi.skill" .
 ```
 
 After installation, restart Antigravity or open a new session. The skill is auto-invoked — no explicit call syntax needed.
@@ -153,7 +153,7 @@ After installation, restart Antigravity or open a new session. The skill is auto
 ```bash
 mkdir -p ~/.codex/skills
 cd ~/.codex/skills
-unzip /path/to/eformsign.skill
+unzip /path/to/eformsign-openapi.skill
 ```
 
 #### Windows (PowerShell)
@@ -161,7 +161,7 @@ unzip /path/to/eformsign.skill
 ```powershell
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.codex\skills"
 cd "$env:USERPROFILE\.codex\skills"
-Expand-Archive -Force "C:\path\to\eformsign.skill" .
+Expand-Archive -Force "C:\path\to\eformsign-openapi.skill" .
 ```
 
 > Skills installed to `~/.codex/skills/` are also available in the Codex desktop app and IDE extension — one installation covers all Codex surfaces.
@@ -177,7 +177,7 @@ After installation, start a new `codex` session.
 ```bash
 mkdir -p ~/.cline/skills
 cd ~/.cline/skills
-unzip /path/to/eformsign.skill
+unzip /path/to/eformsign-openapi.skill
 ```
 
 #### Windows (PowerShell)
@@ -185,7 +185,7 @@ unzip /path/to/eformsign.skill
 ```powershell
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.cline\skills"
 cd "$env:USERPROFILE\.cline\skills"
-Expand-Archive -Force "C:\path\to\eformsign.skill" .
+Expand-Archive -Force "C:\path\to\eformsign-openapi.skill" .
 ```
 
 After installation, open the Cline panel in VS Code, click the **⚖️ icon** (bottom of panel), and verify the skill appears in the Skills tab. Enable it if not already active.
@@ -197,7 +197,7 @@ After installation, open the Cline panel in VS Code, click the **⚖️ icon** (
 ```python
 import zipfile, os
 
-skill_file = "eformsign.skill"
+skill_file = "eformsign-openapi.skill"
 
 # Change the path below to match your client:
 #   Claude Code        → os.path.join(os.path.expanduser("~"), ".claude", "skills")
@@ -245,10 +245,10 @@ Write Python code to issue an eformsign access token using the eformsign signatu
 Open **Copilot Chat** in VS Code in **Agent mode** and invoke the skill with `/`:
 
 ```
-/eformsign Write Python code to issue an eformsign access token using the eformsign signature method.
+/eformsign-openapi Write Python code to issue an eformsign access token using the eformsign signature method.
 ```
 
-> Typing `/` in Copilot Chat shows available skills — select `eformsign` from the list or type the full name.
+> Typing `/` in Copilot Chat shows available skills — select `eformsign-openapi` from the list or type the full name.
 
 ### Cursor
 
@@ -261,7 +261,7 @@ eformsign API로 access token 발급하는 Python 코드 작성해줘
 To invoke explicitly, prefix with `@`:
 
 ```
-@eformsign How do I embed eformsign document signing for an external user?
+@eformsign-openapi How do I embed eformsign document signing for an external user?
 ```
 
 ### Cline (VS Code)
@@ -326,7 +326,7 @@ Show me how to create a document via the eformsign API and then download the PDF
 | Also scans | — | — | `~/.claude/skills/` ✓ | — | — | — | — |
 | Project path | `.claude/skills/` | — | `.github/skills/` | `.cursor/skills/` | `.cline/skills/` | `.agents/skills/` | `.codex/skills/` |
 | Auto-invocation | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ (semantic matching) | ✅ |
-| Explicit invocation | — | — | ✅ `/eformsign` | `@eformsign` | — | — | — |
+| Explicit invocation | — | — | ✅ `/eformsign-openapi` | `@eformsign-openapi` | — | — | — |
 | CLI support | ✅ | — | — | — | — | ✅ `agy` | ✅ `codex` |
 | `disable-model-invocation` | Not supported | Not supported | Supported | Supported | Unknown | Unknown | Unknown |
 | Note | — | Free/Plus/Pro/Max; Desktop ↔ claude.ai synced | Skill description must be broad enough | — | Enable via ⚖️ icon → Skills tab | Free in public preview | Also works in Codex app + IDE |
@@ -339,7 +339,7 @@ A SKILL.md frontmatter field specific to Cursor that controls how the skill is t
 | Value | Behavior |
 |-------|----------|
 | Not set (default) | AI automatically loads the skill when it detects a relevant task |
-| `true` | AI **never** auto-loads the skill — user must call it explicitly with `@eformsign` |
+| `true` | AI **never** auto-loads the skill — user must call it explicitly with `@eformsign-openapi` |
 
 Cursor recommends `true` as the default to prevent unnecessary skill loading when many skills are installed. The eformsign skill does not set this field, so it uses auto-invocation (same as Claude Code behavior). If the skill is triggered in unintended situations, add `disable-model-invocation: true` to the SKILL.md frontmatter.
 

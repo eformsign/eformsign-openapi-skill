@@ -10,12 +10,12 @@ Agent Skills는 오픈 표준으로, Claude Code와 Cursor 등 여러 AI 코딩 
 
 ## 무엇이 포함되어 있나요?
 
-**eformsign Open API Skill**은 `eformsign.skill` 파일 하나로 모두 사용할 수 있습니다.
+**eformsign Open API Skill**은 `eformsign-openapi.skill` 파일 하나로 모두 사용할 수 있습니다.
 
 - 문서 API, 임베딩, Webhook, MCP 연결 안내
 - 조직 관리 API(템플릿·멤버·그룹·도장) — **관리자 권한**이 필요합니다
 
-> **`eformsign-user.skill`을 사용 중이신가요?** `eformsign.skill`로 통합되었습니다. 스킬 디렉토리의 `eformsign-user` 폴더를 삭제한 뒤 `eformsign.skill`을 설치하세요.
+> **기존 `eformsign` 또는 `eformsign-user`를 설치하셨나요?** 두 스킬 모두 `eformsign-openapi`로 대체되었습니다. 스킬 디렉토리의 `eformsign` / `eformsign-user` 폴더를 삭제한 뒤 `eformsign-openapi.skill`을 설치하세요.
 
 ---
 
@@ -47,7 +47,7 @@ Agent Skills는 오픈 표준으로, Claude Code와 Cursor 등 여러 AI 코딩 
 ```bash
 mkdir -p ~/.claude/skills
 cd ~/.claude/skills
-unzip /경로/eformsign.skill
+unzip /경로/eformsign-openapi.skill
 ```
 
 #### Windows (PowerShell)
@@ -55,7 +55,7 @@ unzip /경로/eformsign.skill
 ```powershell
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills"
 cd "$env:USERPROFILE\.claude\skills"
-Expand-Archive -Force "C:\경로\eformsign.skill" .
+Expand-Archive -Force "C:\경로\eformsign-openapi.skill" .
 ```
 
 설치 후 **새 Claude Code 세션을 시작**하세요 — 스킬은 세션 시작 시 로드됩니다.
@@ -81,7 +81,7 @@ Expand-Archive -Force "C:\경로\eformsign.skill" .
 ```bash
 mkdir -p ~/.copilot/skills
 cd ~/.copilot/skills
-unzip /경로/eformsign.skill
+unzip /경로/eformsign-openapi.skill
 ```
 
 #### Windows (PowerShell)
@@ -89,7 +89,7 @@ unzip /경로/eformsign.skill
 ```powershell
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.copilot\skills"
 cd "$env:USERPROFILE\.copilot\skills"
-Expand-Archive -Force "C:\경로\eformsign.skill" .
+Expand-Archive -Force "C:\경로\eformsign-openapi.skill" .
 ```
 
 > **Claude Code 이미 설치했다면?** 이 단계를 건너뛰어도 됩니다. GitHub Copilot은 `~/.claude/skills/`도 스캔하므로 이미 설치된 스킬이 함께 동작합니다.
@@ -107,7 +107,7 @@ Expand-Archive -Force "C:\경로\eformsign.skill" .
 ```bash
 mkdir -p ~/.cursor/skills
 cd ~/.cursor/skills
-unzip /경로/eformsign.skill
+unzip /경로/eformsign-openapi.skill
 ```
 
 #### Windows (PowerShell)
@@ -115,7 +115,7 @@ unzip /경로/eformsign.skill
 ```powershell
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.cursor\skills"
 cd "$env:USERPROFILE\.cursor\skills"
-Expand-Archive -Force "C:\경로\eformsign.skill" .
+Expand-Archive -Force "C:\경로\eformsign-openapi.skill" .
 ```
 
 > **⚠️ 주의:** `~/.cursor/skills-cursor/` 경로에 파일을 넣으면 **안 됩니다**. 이 디렉토리는 Cursor 내부 전용으로 자동 관리되며, 여기에 넣은 사용자 스킬은 무시되거나 덮어씌워집니다.
@@ -131,7 +131,7 @@ Expand-Archive -Force "C:\경로\eformsign.skill" .
 ```bash
 mkdir -p ~/.gemini/config/skills
 cd ~/.gemini/config/skills
-unzip /경로/eformsign.skill
+unzip /경로/eformsign-openapi.skill
 ```
 
 #### Windows (PowerShell)
@@ -139,7 +139,7 @@ unzip /경로/eformsign.skill
 ```powershell
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.gemini\config\skills"
 cd "$env:USERPROFILE\.gemini\config\skills"
-Expand-Archive -Force "C:\경로\eformsign.skill" .
+Expand-Archive -Force "C:\경로\eformsign-openapi.skill" .
 ```
 
 설치 후 Antigravity를 재시작하거나 새 세션을 여세요. 별도 호출 없이 자동으로 스킬이 로드됩니다.
@@ -153,7 +153,7 @@ Expand-Archive -Force "C:\경로\eformsign.skill" .
 ```bash
 mkdir -p ~/.codex/skills
 cd ~/.codex/skills
-unzip /경로/eformsign.skill
+unzip /경로/eformsign-openapi.skill
 ```
 
 #### Windows (PowerShell)
@@ -161,7 +161,7 @@ unzip /경로/eformsign.skill
 ```powershell
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.codex\skills"
 cd "$env:USERPROFILE\.codex\skills"
-Expand-Archive -Force "C:\경로\eformsign.skill" .
+Expand-Archive -Force "C:\경로\eformsign-openapi.skill" .
 ```
 
 > `~/.codex/skills/`에 설치하면 Codex 데스크탑 앱과 IDE 확장에서도 동일하게 사용할 수 있습니다. 한 번 설치로 모든 Codex 환경에 적용됩니다.
@@ -177,7 +177,7 @@ Expand-Archive -Force "C:\경로\eformsign.skill" .
 ```bash
 mkdir -p ~/.cline/skills
 cd ~/.cline/skills
-unzip /경로/eformsign.skill
+unzip /경로/eformsign-openapi.skill
 ```
 
 #### Windows (PowerShell)
@@ -185,7 +185,7 @@ unzip /경로/eformsign.skill
 ```powershell
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.cline\skills"
 cd "$env:USERPROFILE\.cline\skills"
-Expand-Archive -Force "C:\경로\eformsign.skill" .
+Expand-Archive -Force "C:\경로\eformsign-openapi.skill" .
 ```
 
 설치 후 VS Code의 Cline 패널 하단 **⚖️ 아이콘**을 클릭하고 Skills 탭에서 eformsign 스킬이 활성화되어 있는지 확인하세요.
@@ -197,7 +197,7 @@ Expand-Archive -Force "C:\경로\eformsign.skill" .
 ```python
 import zipfile, os
 
-skill_file = "eformsign.skill"
+skill_file = "eformsign-openapi.skill"
 
 # 클라이언트에 맞게 경로 변경:
 #   Claude Code        → os.path.join(os.path.expanduser("~"), ".claude", "skills")
@@ -245,10 +245,10 @@ eformsign signature 방식으로 access token을 발급하는 Python 코드를 �
 VS Code의 **Copilot Chat**을 **Agent 모드**로 열고 `/`로 스킬을 호출하세요:
 
 ```
-/eformsign eformsign API로 문서를 생성하는 Python 코드 작성해줘
+/eformsign-openapi eformsign API로 문서를 생성하는 Python 코드 작성해줘
 ```
 
-> 입력창에 `/`를 치면 사용 가능한 스킬 목록이 표시됩니다. `eformsign`을 선택하거나 직접 입력하세요.
+> 입력창에 `/`를 치면 사용 가능한 스킬 목록이 표시됩니다. `eformsign-openapi`를 선택하거나 직접 입력하세요.
 
 ### Cursor
 
@@ -261,7 +261,7 @@ eformsign API로 access token 발급하는 Python 코드 작성해줘
 명시적으로 호출하려면 `@`를 붙이세요:
 
 ```
-@eformsign 외부 사용자 서명 임베딩 방법 알려줘
+@eformsign-openapi 외부 사용자 서명 임베딩 방법 알려줘
 ```
 
 ### Cline (VS Code)
@@ -326,7 +326,7 @@ eformsign API로 문서를 생성하고, 완료 후 PDF를 다운로드하는 �
 | 추가 스캔 경로 | — | — | `~/.claude/skills/` ✓ | — | — | — | — |
 | 프로젝트 경로 | `.claude/skills/` | — | `.github/skills/` | `.cursor/skills/` | `.cline/skills/` | `.agents/skills/` | `.codex/skills/` |
 | 자동 호출 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ (시맨틱 매칭) | ✅ |
-| 명시적 호출 | — | — | ✅ `/eformsign` | `@eformsign` | — | — | — |
+| 명시적 호출 | — | — | ✅ `/eformsign-openapi` | `@eformsign-openapi` | — | — | — |
 | CLI 지원 | ✅ | — | — | — | — | ✅ `agy` | ✅ `codex` |
 | `disable-model-invocation` | 미지원 | 미지원 | 지원 | 지원 | 미확인 | 미확인 | 미확인 |
 | 비고 | — | Free/Plus/Pro/Max; Desktop ↔ claude.ai 동기화 | description이 쿼리 의도와 충분히 넓게 매칭되어야 자동 호출 작동 | — | ⚖️ 아이콘 → Skills 탭에서 활성화 | 퍼블릭 프리뷰 무료 | Codex 앱·IDE 확장과 경로 공유 |
@@ -339,7 +339,7 @@ Cursor 전용 SKILL.md 프론트매터 필드로, 스킬 호출 방식을 제어
 | 값 | 동작 |
 |----|------|
 | 없음 (기본) | AI가 작업 내용을 보고 관련 있다고 판단하면 자동으로 스킬 로드 |
-| `true` | AI 자동 선택 비활성화 — `@eformsign`처럼 명시적으로 호출해야만 작동 |
+| `true` | AI 자동 선택 비활성화 — `@eformsign-openapi`처럼 명시적으로 호출해야만 작동 |
 
 Cursor는 스킬이 많을 때 불필요한 로딩을 막기 위해 기본적으로 `true`를 권장합니다. eformsign 스킬은 이 필드를 설정하지 않으므로 자동 호출로 동작합니다 (Claude Code와 동일). 원하지 않는 상황에 스킬이 자동으로 로드된다면 SKILL.md 프론트매터에 `disable-model-invocation: true`를 추가하면 됩니다.
 

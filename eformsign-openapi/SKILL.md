@@ -1,5 +1,5 @@
 ---
-name: eformsign
+name: eformsign-openapi
 description: >
   eformsign Open API Skill — expert reference for the eformsign electronic document service.
   Use when: any question about eformsign API (documents, templates, members, groups),
@@ -128,7 +128,7 @@ Some tasks require reading multiple reference files. Read all listed files befor
 ### MCP Integration
 eformsign provides a hosted MCP server, so there is nothing to install or run yourself.
 
-1. In your MCP client, set the server address (e.g. `https://mcp.eformsign.com` — placeholder, confirm the actual address), the OAuth client ID, and the client secret. Use the domain only (no path)
+1. In your MCP client, set the server address (`https://kr-mcp.eformsign.com`), the OAuth client ID, and the client secret. Use the domain only (no path)
 2. On connection, the eformsign login page opens — sign in with your eformsign account
 3. OAuth issues a token; the MCP server exchanges it with eformsign for an API token
 4. Every user sees the same tool list. Actions that need a management permission (document, company, or template management) are marked in each tool's description; the eformsign API decides whether the call is allowed. Call `eformsign_whoami` to check the signed-in user's roles and permissions. Read the tool schemas the server returns instead of relying on this skill

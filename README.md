@@ -1,6 +1,6 @@
 # eformsign Open API Skill
 
-**eformsign Open API Skill**은 eformsign 전자문서 서비스 연동 앱 개발을 돕는 **Agent Skill**입니다.  
+**eformsign Open API Skill**은 eformsign 전자문서 서비스 연동 개발을 돕는 **Agent Skill**입니다.  
 공식 문서의 오류·누락·실제 서버 동작 차이를 보완하는 레퍼런스를 담고 있습니다.
 
 [Agent Skills](https://agentskills.io) 오픈 표준을 따르며, Claude Code·Cursor·GitHub Copilot·Cline 등 다양한 AI 코딩 클라이언트에서 사용할 수 있습니다.
@@ -9,7 +9,7 @@
 
 ## 포함 범위
 
-**eformsign Open API Skill**(`eformsign`) 하나로 아래 기능을 모두 사용할 수 있습니다.
+**eformsign Open API Skill**(`eformsign-openapi`) 하나로 아래 기능을 모두 사용할 수 있습니다.
 
 | 영역 | 내용 |
 |------|------|
@@ -19,7 +19,7 @@
 | Webhook | 이벤트 수신, 서명 검증 |
 | MCP | eformsign이 제공하는 MCP 서버 연결 안내 (OAuth) |
 
-> **`eformsign-user`를 사용 중이신가요?** `eformsign`으로 통합되었습니다. 스킬 디렉토리의 `eformsign-user` 폴더를 삭제하고 `eformsign.skill`을 설치하세요.
+> **기존 `eformsign` 또는 `eformsign-user`를 설치하셨나요?** 두 스킬 모두 `eformsign-openapi`로 대체되었습니다. 스킬 디렉토리의 `eformsign` / `eformsign-user` 폴더를 삭제하고 `eformsign-openapi.skill`을 설치하세요.
 
 ---
 
@@ -79,7 +79,7 @@ Python · JavaScript/Node.js · Java · PHP · C#
 ## 레퍼런스 파일 구성
 
 ```
-eformsign/
+eformsign-openapi/
 ├── SKILL.md                     # 스킬 진입점 — 레퍼런스 참조 안내
 └── references/
     ├── api_auth.md              # 인증, 토큰 발급·갱신, 서명 생성
@@ -101,9 +101,9 @@ eformsign/
 # skill-creator 디렉토리에서 실행 (위치: ~/.claude/skills/skill-creator/)
 cd "C:\Users\{username}\.claude\skills\skill-creator"
 
-PYTHONUTF8=1 PYTHONIOENCODING=utf-8 python -m scripts.package_skill "path/to/eformsign" "output/dir"
+PYTHONUTF8=1 PYTHONIOENCODING=utf-8 python -m scripts.package_skill "path/to/eformsign-openapi" "output/dir"
 ```
 
-성공 시 출력 디렉토리에 `eformsign.skill` 파일이 생성됩니다. (저장소에서는 `build.ps1`이 `dist/`에 생성합니다.)
+성공 시 출력 디렉토리에 `eformsign-openapi.skill` 파일이 생성됩니다. (저장소에서는 `build.ps1`이 `dist/`에 생성합니다.)
 
 > **Windows 인코딩 주의**: `PYTHONUTF8=1 PYTHONIOENCODING=utf-8` 없이 실행하면 한글 처리 오류가 발생합니다.
