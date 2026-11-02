@@ -136,3 +136,5 @@ eformsign provides a hosted MCP server, so there is nothing to install or run yo
 The client ID and secret are not public. Ask your company administrator for them; do not guess or invent values.
 
 There are no MCP tools for Embedding or Webhook — those still require code (see the sections above).
+
+External-recipient actions that need a company API key (creating a document for an external recipient, external decline) are not available through MCP — use the Open API with code instead (see `references/api_documents.md`).
